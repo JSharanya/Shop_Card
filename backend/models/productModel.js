@@ -1,4 +1,5 @@
-const mongoose=require('mongoose')
+const mongoose=require('mongoose');
+
 
 const productSchema=new mongoose.Schema({
     name:{
@@ -15,7 +16,7 @@ const productSchema=new mongoose.Schema({
     },
 
     description:{
-        typr:String,
+        type:String,
         required:[true,"Please enter product description"]
     },
     ratings:{
@@ -36,7 +37,7 @@ const productSchema=new mongoose.Schema({
         enum:{
             values:[
                 'Electronices',
-                'Mobile Phone',
+                'Mobile Phones',
                 'Laptops',
                 'Accessories',
                 'HeadPhones',
@@ -82,6 +83,9 @@ const productSchema=new mongoose.Schema({
             }
         }
     ],
+    user: {
+        type : mongoose.Schema.Types.ObjectId
+    },
     createdAt:{
         type:Date,
         default:Date.now()
@@ -89,6 +93,6 @@ const productSchema=new mongoose.Schema({
     }
 })
 
-let schema=mongoose.model('Product',productSchema)
+let schema=mongoose.model('Product',productSchema);
 
-module.exports=schema
+module.exports=schema;
